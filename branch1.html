@@ -13,7 +13,6 @@
 <body>
 <div class="upgrades">
   <h1> Upgrades: </h1>
-  <div class="upgrade1">200%</div>
 </div>
 
 <div class="header">
@@ -43,7 +42,7 @@ html, body {
   display: inline-block;
 }
 
-.display, .mouse, .auto, .grandma, .upgrade1 {
+.display, .mouse, .auto, .grandma {
   height: 50px;
   width: 100px;
   background: blue;
@@ -145,7 +144,7 @@ setInterval(function(){
   $(".CPC").text(`Clicks per Click: ${clickVal}`);
   autoUpdate(".mouse", mouseCost);
   autoUpdate(".auto", autoCost);
-  autoUpdate(".grandma", grandmaCost);
+  autoUpdate(".grandma", grandmaCost)
 }, 100);
 
 // Cookier Clicker
@@ -185,23 +184,18 @@ $(document).ready(function() {
       });
     });
 
-// Grandmaclicker
+// Autoclicker
   $(document).ready(function() {
     $(".grandma").mousedown(function() {
         if (clickCount >= grandmaCost) {
           clickCountUpdate(grandmaCost);
-          grandmaCost = Math.floor(grandmaCost * multiplyVal);
+          autoCost = Math.floor(grandmaCost * multiplyVal);
           $(".display").text(clickCount);
           $(".grandma").text("Cost: " + grandmaCost);
           increaseCPS(1);
         };
       });
     });
-
-$(".upgrade1").click(function() {
-  $(this).hide();
-  autoCount *= 2;
-})
 
 $(document).ready(function() {
   $('.test').mousedown(function() {
