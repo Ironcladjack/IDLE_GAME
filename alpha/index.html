@@ -120,9 +120,29 @@ let mouseOver = function(building) {
 mouseOver(".display");
 mouseOver(".auto");
 mouseOver(".mouse");
-mouseOver(".grandma")
+mouseOver(".grandma");
 
+class Upgrades {
+  constructor(name,description,effect) {
+    this._name = name;
+    this._description = description;
+    this._effect = effect;
+  }
 
+  get name() {
+    return this._name;
+  }
+
+  get description() {
+    return this._description
+  }
+}
+
+const chocolateChip = new Upgrades('Chocolate Chip','Gives 15% CPS boost!',1.15);
+
+$(".CPC").after(chocolateChip.name);
+
+$(".CPS").append("Hello World!");
 
 let mouseClick = function(building) {
   $(building).mousedown(function() {
